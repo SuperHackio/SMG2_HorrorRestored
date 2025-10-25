@@ -1,0 +1,69 @@
+{
+  "Name": "SMG2_HorrorRestored",
+  "Author": "Super Hackio",
+  "Description": "A restoration/interpretation of the unused Horror mode",
+  "ModuleDependancies": [
+    "MarioSubMeter_API"
+  ],
+  "ModuleData": [
+    {
+      "NameObjFactory": [
+        {
+          "Name": "HorrorItem",
+          "Function": "createExtActor<HorrorItem>",
+          "Include": "HorrorItem.h"
+        },
+        {
+          "Name": "HorrorSwitch",
+          "Function": "createExtActor<HorrorSwitch>",
+          "Include": "HorrorSwitch.h"
+        },
+        {
+          "Name": "HorrorForbidThrowArea",
+          "Function": "createExtActor<HorrorForbidThrowArea>",
+          "Include": "HorrorForbidThrowArea.h"
+        },
+        {
+          "Name": "HorrorLimitArea",
+          "Function": "createExtActor<HorrorLimitArea>",
+          "Include": "HorrorLimitArea.h"
+        }
+      ],
+      "AreaObjMgr": [
+        {
+          "Name": "HorrorForbidThrow",
+          "MaxCount": "32",
+          "Function": "AreaObjContainer::createManager<AreaObjMgr>"
+        },
+        {
+          "Name": "HorrorLimit",
+          "MaxCount": "32",
+          "Function": "AreaObjContainer::createManager<AreaObjMgr>"
+        }
+      ],
+      "MarioSubMeter": [
+        {
+          "RefName": "SubMeterHorror",
+          "LayoutName": "HorrorMeter",
+          "Behavior": "2",
+          "InitFunc": "MR::initHorrorMeter",
+          "Include": "Horror.h"
+        }
+      ],
+      "SceneObjHolder": [
+        {
+          "Name": "SCENE_OBJ_HORROR_BONE_HOLDER",
+          "Function": "SceneObjHolder_createHorrorBoneGroup",
+          "Include": "HorrorBone.h"
+        }
+      ],
+      "ExtMorphSwitchArea": [
+        {
+          "Name": "Horror",
+          "Function": "MR::isHorrorModeActive",
+          "Include": "Horror.h"
+        }
+      ]
+    }
+  ]
+}
