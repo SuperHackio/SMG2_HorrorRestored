@@ -1,10 +1,10 @@
 {
   "Name": "SMG2_HorrorRestored",
   "Author": "Super Hackio",
-  "Description": "A restoration/interpretation of the unused Horror mode",
-  "ModuleDependancies": [
-    "MarioSubMeter_API"
-  ],
+  "Description": "A brand new puzzle-based time-mangement powerup based on SMG2s scrapped Horror game state",
+  "RequiredAPIs": [ "MarioSubMeter_API" ],
+  "SupportedGames": [ "SB4" ],
+
   "ModuleData": [
     {
       "NameObjFactory": [
