@@ -364,4 +364,16 @@ namespace MR {
 		return !(isHorrorModeActive() && !isHorrorInLightAny());
 	}
 	kmCall(0x803B5BC8, isAllowCometTimerDeath);
+
+
+
+	// Found by IcoFriendly, if you were to lose the Horror powerup when in a state when the meter doesn't update, it doesn't go away
+	void removeMeterIfNotHorror() {
+		SubMeterLayout* pMeter = getMarioSubMeter(SUBMETER_HORROR);
+		if (pMeter == NULL || pMeter != getCurrentMarioSubMeter())
+			return;
+		if (!isHorrorModeActive())
+			pMeter->requestDeactivate();
+	}
+	kmBranch(0x803B94D0, removeMeterIfNotHorror);
 }
